@@ -34,7 +34,6 @@ class LinkedList:
             prev=curr
         self.head=prev
         
-        
 
 
 

@@ -28,6 +28,7 @@ def printLL(head):
             head = head.next
         print(None)
     return
+
 def mergeSorted(head1,head2):
     fh,ft=None,None # final head and final tail
     if head1.value < head2.value:
@@ -52,6 +53,7 @@ def mergeSorted(head1,head2):
     else:
         ft.next=head2 
     return fh
+
 
 
 head1,l1=takeinput()

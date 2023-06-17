@@ -34,9 +34,43 @@ def midPoint(head):
             slow=slow.next
             fast=fast.next.next
     return slow
-   
+def merge2Sorted(head1,head2):
+    fh,ft=None,None # final head and final tail
+    if head1.value < head2.value:
+        fh=head1
+        ft=head1
+        head1=head1.next
+    else:
+        fh=head2
+        ft=head2
+        head2=head2.next
+    while head1 != None and head2 != None:
+        if head1.value < head2.value:
+            ft.next = head1
+            ft=ft.next
+            head1=head1.next
+        else:
+            ft.next=head2
+            ft=ft.next
+            head2=head2.next 
+    if head1!=None:
+        ft.next=head1
+    else:
+        ft.next=head2 
+    return fh
+def mergeSort(head):
+    if head.next is None: return head
+    mid=midPoint(head)
+    head1=head 
+    head2=mid.next 
+    mid.next=None 
+    head1=mergeSort(head1)
+    head2=mergeSort(head2)
+    return merge2Sorted(head1,head2)
+
+
 
 head,l=takeinput()
 printLL(head)
-mid =midPoint(head)
-print(mid.value)
+new_head=mergeSort(head)
+printLL(new_head)

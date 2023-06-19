@@ -29,18 +29,31 @@ def printLL(head):
         print(None)
     return
 def swap(head,i,j):
-    c1,c2=0,0
-    p1,p2=head,head
-    while c1<i:
-        c1+=1
-        p1=p1.next
-    while c2<j:
-        c2+=1
-        p2=p2.next
-    d1,d2=p1.value,p2.value
-    p1.value,p2.value=d2,d1 
+    if i==j:
+        return head
+    p1=None 
+    c1=head 
+    p2=None 
+    c2=head 
+    for _ in range(i):
+        p1=c1 
+        c1=c1.next 
+    for _ in range(j):
+        p2=c2 
+        c2=c2.next 
+    if p1!=None:
+        p1.next=c2 
+    else:
+        head=c2 
+    if p2!=None:
+        p2.next=c1 
+    else:
+        head=c1 
+    temp=c1.next 
+    c1.next=c2.next 
+    c2.next=temp 
+    return head 
 
-    return head
 
 head,l=takeinput()
 printLL(head)

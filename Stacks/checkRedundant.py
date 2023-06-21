@@ -1,4 +1,4 @@
-string="(a+b)"
+string="(a+b)((c+d))"
 stack=[]
 def checkRedundant(string):
     for i in range(len(string)):

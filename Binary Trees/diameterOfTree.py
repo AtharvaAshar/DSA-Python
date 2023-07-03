@@ -35,7 +35,7 @@ def diameter(root):
     lh,ld=diameter(root.left)
     rh,rd=diameter(root.right)
     h = 1 + max(lh, rh)
-    return h,max(lh+rh,ld,rd)
+    return h,max(lh+rh,max(ld,rd))
 
 
 

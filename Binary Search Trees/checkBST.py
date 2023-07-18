@@ -113,10 +113,19 @@ def checkBST2(root):
 
     return  minimum, maximum,isTreeBST
 
+def checkBST3(root,min_range=-9999,max_range=9999):
+    if root is None:
+        return True
+    if root.data<min_range or root.data>max_range:
+        return False
+    isLeftWithinConstraint=checkBST3(root.left,min_range,root.data-1)
+    isRightWithinConstraint=checkBST3(root.right,root.data,max_range)
+    return isLeftWithinConstraint and isRightWithinConstraint
+
 
 root = treeInput()
 
 
 levelOrderTraversal(root)
 print()
-print(checkBST2(root))
+print(checkBST3(root))

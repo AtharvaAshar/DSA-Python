@@ -64,17 +64,6 @@ def identical(root1,root2):
                     return False
     return True
 
-def nodeWithMaxChildSum2(root):
-    if not root:
-        return None, 0
-    maxNode, maxSum = root, root.data + \
-        sum(child.data for child in root.children)
-    for child in root.children:
-        childNode, childSum = nodeWithMaxChildSum2(child)
-        currentSum = child.data + childSum
-        if currentSum > maxSum:
-            maxNode, maxSum = childNode, childSum
-    return maxNode, maxSum
 
 
 root1 = levelwiseInput()

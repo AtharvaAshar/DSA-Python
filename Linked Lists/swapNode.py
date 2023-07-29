@@ -49,9 +49,7 @@ def swap(head,i,j):
         p2.next=c1 
     else:
         head=c1 
-    temp=c1.next 
-    c1.next=c2.next 
-    c2.next=temp 
+    c1.next,c2.next=c2.next,c1.next
     return head 
 
 

@@ -3,6 +3,10 @@ class Edge:
         self.src=src
         self.dest=dest
         self.wt=wt
+def getParent(v,parent):
+    if (v==parent[v]):
+        return v
+    return getParent(parent[v],parent)
 def kruskal(edges,v):
     parent=[n for n in range(v)]
     edges=sorted(edges,key=lambda x:x.wt)
@@ -11,8 +15,8 @@ def kruskal(edges,v):
     i=0
     while c<v-1:
         currEdge=edges[i]
-        srcParent=parent[currEdge.src-1]
-        destParent=parent[currEdge.dest-1]
+        srcParent=getParent(currEdge.src,parent)
+        destParent=getParent(currEdge.dest,parent)
         if srcParent!=destParent:
             output.append(currEdge) 
             parent[srcParent]=destParent
